@@ -1,0 +1,206 @@
+body, html {
+    height: 100%;
+    margin: 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.page-top {
+    padding-top: 10vh;
+    width: 100vw;
+    height: 48vh;
+    padding-bottom: 3vh;
+    background-color: #53B4C0;
+}
+
+.page-heading {
+    color: #062023;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    font-size: 4em;
+    margin-bottom: 1vh;
+}
+
+.page-details {
+    color: #062023;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    font-size: 1.5em;
+    
+}
+
+.page-breadcrumb {
+    color: #062023;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 2vh;
+    margin-top: 0;
+}
+
+.page-breadcrumb + .page-heading {
+    margin-top: 1vh;
+}
+
+@media screen and (max-width: 1200px) {
+    .page-heading {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        font-size: 3.5em;
+    }
+    .page-details {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        font-size: 1.3em;
+    }
+    .page-breadcrumb {
+        margin-left: 10vw;
+        margin-right: 10vw;
+        font-size: 1em;
+    }
+    .heading-long {
+        font-size: 2.5em;
+    }
+}
+@media screen and (max-width: 650px) {
+    .page-top {
+        height: 50vh;
+        padding-top: 10vh;
+    }
+    .page-heading {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        font-size: 3.5em;
+    }
+    .page-details {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        font-size: 1.3em;
+    }
+    .page-breadcrumb {
+        margin-left: 5vw;
+        margin-right: 5vw;
+        font-size: 1em;
+    }
+    .heading-long {
+        font-size: 2.5em;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .page-top {
+        height: 50vh;
+    }
+    .page-details {
+        font-size: 1.2em;
+    }
+    .page-heading {
+        font-size: 3em;
+    }
+    .page-breadcrumb {
+        margin-top: 2vh;
+    }
+    .heading-long {
+        font-size: 2em;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .page-top {
+        height: 50vh;
+    }
+    .page-details {
+        font-size: 1.2em;
+    }
+    .page-heading {
+        font-size: 3em;
+    }
+    .heading-long {
+        font-size: 2em;
+    }
+}
+
+
+
+
+.hero {
+    height: 95vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("./ambiance.jpeg") no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin: 20px;
+}
+
+.hero-text > h1 {
+    color: #fff;
+    font-size: 4em;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.hero-text > p {
+    color: #fff;
+    font-size: 1.5em;
+    text-align: center;
+    margin: 10px;
+}
+
+@media (max-width: 400px) {
+    .logo {
+        width: 210px;
+        height: 210px;
+    }
+
+    .hero-text > h1 {
+        font-size: 2em;
+        margin-left: 10px;
+    }
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#282828,#090909);
+    color: #eaeaea;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+.about > h1 {
+    font-size: 2.5em;
+}
+
+.about > p {
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+@media screen and (max-width: 900px) {
+    .about {
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+}
