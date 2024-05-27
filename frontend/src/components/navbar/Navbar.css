@@ -130,6 +130,7 @@
   }
   .menu__item:hover {
     background-color: #ff713d;
+    cursor: pointer;
   }
   
   .current-page, .current-page:hover {
