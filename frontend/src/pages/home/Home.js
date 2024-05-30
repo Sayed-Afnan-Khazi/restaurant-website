@@ -5,6 +5,7 @@ import about2 from './about-2.jpeg';
 import chef1 from './chef-1.jpeg';
 import chef2 from './chef-2.jpeg';
 import { useNavigate } from 'react-router-dom';
+import Reviews from '../../components/reviews/Reviews';
 
 const Home = () => {
 
@@ -61,32 +62,7 @@ const Home = () => {
                 <p className="rounded-btn" onClick={() => navigate('/menu')}>Explore Our Menu</p>
                 <p className="rounded-btn" onClick={() => navigate('/contact')}>RSVP</p>
         </section>
-        <section className="reviews">
-            <h1 className="section-heading">What Our Customers Say</h1>
-            <div className="reviews-container">
-                <div className="review">
-                    <h3>“The food was amazing!”</h3>
-                    <p>“The food was amazing! The service was great and the atmosphere was perfect. I would definitely
-                        recommend this restaurant to anyone looking for a great meal.”
-                    </p>
-                    <p>4/5 - Amelia Earhart</p>
-                    </div>
-                <div className="review">
-                    <h3>“The best restaurant in Mysore!”</h3>
-                    <p>“The best restaurant in Mysore! The food is delicious and the service is excellent. I would highly
-                        recommend this restaurant to anyone looking for a great dining experience.”
-                    </p>
-                    <p>5/5 - John Applebees</p>
-                </div>
-                <div className="review">
-                    <h3>“Exquisite!”</h3>
-                    <p>“A great time. Fabulous staff, amazing food. A must go-to if you're in Mysore.”
-                    </p>
-                    <p>5/5 - Tim Cook</p>
-                </div>
-            </div>
-            <p className="rounded-btn leave-a-review" onClick={() => navigate('/contact')}>Leave a Review</p>
-        </section>
+        <Reviews/>
         <section className="chefs">
             <h1 className="section-heading">Meet Our Chefs</h1>
             <div className="chefs-container">

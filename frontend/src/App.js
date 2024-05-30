@@ -5,6 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import Contact from "./pages/contact/Contact";
 import Menu from "./pages/menu/Menu";
 import Photos from "./pages/photos/Photos";
+import LeaveAReview from "./pages/leave_a_review/LeaveAReview";
 import NotFound from "./pages/notfound/NotFound";
 
 const App = () => {
@@ -16,8 +17,9 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/menu" element={<Menu/>}/>
-        <Route path="/photos" element={<Photos/>}/>
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/photos" element={<Photos />} />
+        <Route path="/leave-a-review" element={<LeaveAReview />} />   
+        <Route path="*" element={<NotFound />} />
       </Routes>
       </Router>
     </div>
