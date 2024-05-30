@@ -19,7 +19,7 @@ const LeaveAReview = () => {
 			review
 		};
 
-		fetch('http://localhost:5000/leave-a-review', {
+		fetch('http://localhost:5000/review', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

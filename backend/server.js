@@ -33,21 +33,21 @@ const connectDB = async () => {
 connectDB();
 
 const ReviewSchema = new mongoose.Schema( {
-	title: {
+	name: {
 		type: String,
-		required: true
+		// required: true
 	},
-	body: {
+	email: {
 		type: String,
-		required: true
+		// required: true
 	},
 	rating: {
 		type: Number,
-		required: true
+		// required: true
 	},
-	reviewer_name: {
+	review: {
 		type: String,
-		required: true
+		// required: true
 	}
  });
 const Review = mongoose.model('Review', ReviewSchema);
@@ -82,12 +82,15 @@ const Reservation = mongoose.model('Reservation', ReservationsSchema);
 
 
 app.post('/review', async (req, res) => {
-	try{
-	const { title, body, rating, reviewer_name } = req.body;
-	await Review.create({ title, body, rating, reviewer_name });
+	try {
+		const { name, email, rating, review} = req.body;
+		console.log("req.body: ",req.body)
+		const review_new = new Review({ name, email, rating, review});
+		await review_new.save();
 		res.status(200).json({ message: 'Review submitted successfully' });
 	} catch (error) {
 		res.status(500).json({ message: 'Failed to submit review' });
+		console.log(error);
 	}
 });
 app.get('/review', async (req, res) => {
