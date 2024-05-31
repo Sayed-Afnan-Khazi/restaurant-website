@@ -10,16 +10,18 @@ const LeaveAReview = () => {
 		const name = event.target.name.value;
 		const email = event.target.email.value;
 		const rating = event.target.rating.value;
+		const title = event.target.title.value;
 		const review = event.target.review.value;
 
 		const formData = {
 			name,
 			email,
 			rating,
+			title,
 			review
 		};
 
-		fetch('http://localhost:5000/review', {
+		fetch('http://localhost:5000/reviews', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -47,6 +49,8 @@ const LeaveAReview = () => {
 					<input type="email" id="email" name="email"></input>
 					<label for="rating">Rating:</label>
 					<input type="number" id="rating" name="rating" min="0" max="5" step="0.5"></input>
+					<label for="title" id="title">Title:</label>
+					<input type="text" id="title" name="title"></input>
 					<label for="review">Review:</label>
 					<textarea id="review" name="review"></textarea>
 					<input type="submit" value="Submit"></input>
