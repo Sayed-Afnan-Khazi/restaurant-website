@@ -8,7 +8,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([])
 
   useEffect(()=> {
-    fetch('http://localhost:5000/top-reviews', {
+    fetch('https://le-fish-au-chocolat.onrender.com/top-reviews', {
 			method: 'GET',
 		})
 		.then(response => response.json())
