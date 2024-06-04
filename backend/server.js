@@ -6,52 +6,42 @@ const app = express();
 const port = 5000;
 
 app.use(cors());
-
-// Rest of your code...
+app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
-// Connect to MongoDB
-// mongoose.connect('mongodb+srv://hetarthjain:MduFbAYHnoxOqbIr@cluster0.ezb8neo.mongodb.net/blog', {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// })
-// 	.then(() => {
-// 		console.log('Connected to MongoDB');
-// 	})
-// 	.catch((error) => {
-// 		console.error('Error connecting to MongoDB:', error);
-// 	});
 
+// Connect to MongoDB -------------------------------------------------------------------
 const connectDB = async () => {
 	try {
 		mongoose.set('strictQuery', false)
-		const conn = await mongoose.connect('mongodb+srv://afnanind:WsqvZZ3r8meqNPjX@cluster0.f9a8g4i.mongodb.net/restaurant')
+		// const conn = await mongoose.connect('mongodb+srv://afnanind:WsqvZZ3r8meqNPjX@cluster0.f9a8g4i.mongodb.net/restaurant')
+		const conn = await mongoose.connect('mongodb+srv://hetarthjain:MduFbAYHnoxOqbIr@cluster0.ezb8neo.mongodb.net/restaurant')
 		console.log(`DB connected ${conn.connection.host}`)
 	} catch (err)
 	{ console.log("Error", err) }
 }
 connectDB();
-
+// Models --------------------------------------------------------------------------------
 const ReviewSchema = new mongoose.Schema( {
 	name: {
 		type: String,
-		// required: true
+		required: true
 	},
 	email: {
 		type: String,
-		// required: true
+		required: true
 	},
 	title: {
 		type: String,
-		// required: true
+		required: true
 	},
 	rating: {
 		type: Number,
-		// required: true
+		required: true
 	},
 	review: {
 		type: String,
-		// required: true
+		required: true
 	}
  });
 const Review = mongoose.model('Review', ReviewSchema);
@@ -59,10 +49,6 @@ const Review = mongoose.model('Review', ReviewSchema);
 const ReservationsSchema = new mongoose.Schema({
 	name: {
 		type: String,
-		required: true
-	},
-	phone: {
-		type: Number,
 		required: true
 	},
 	email: {
@@ -84,7 +70,7 @@ const ReservationsSchema = new mongoose.Schema({
 });
 const Reservation = mongoose.model('Reservation', ReservationsSchema);
 
-
+// Reviews --------------------------------------------------------------------------------
 app.post('/reviews', async (req, res) => {
 	try {
 		const { name, email, rating, title, review} = req.body;
@@ -119,24 +105,34 @@ app.get('/top-reviews', async (req, res) => {
         res.status(500).json({ message: 'Failed to fetch reviews' });
     }
 });
+// Reservations --------------------------------------------------------------------------
 app.post('/reservations', async (req, res) => {
-	const reservation = new Reservation(req.body);
-	try {
-	  await reservation.save();
-	  res.status(201).send(reservation);
+	const { name, email, date, time, people } = req.body;
+	console.log("req.body: ",req.body)
+    try {
+		const existingReservation = await Reservation.findOne({ date, time });
+		console.log("existingReservation: ",existingReservation)
+        if (existingReservation) {
+            return res.status(400).send({ message: 'This time slot is already booked.' });
+        }
+
+        const reservation = new Reservation({ name, email, date, time, people });
+        await reservation.save();
+		res.json({ message: 'Reservation successful!' }).redirect('/');
 	} catch (error) {
-	  res.status(400).send(error);
-	}
+		console.log("Error: ",error)
+        res.status(500).json({ message: 'Error creating reservation' });
+    }
 });
 app.get('/reservations', async (req, res) => {
 	try {
-	  const reservations = await Reservation.find();
-	  res.status(200).send(reservations);
-	} catch (error) {
-	  res.status(500).send(error);
-	}
+        const reservations = await Reservation.find();
+        res.json(reservations);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching reservations' });
+    }
 });
-app.get('/reservations', async (req, res) => {
+app.get('/admin', async (req, res) => {
 	try {
 	  const reservations = await Reservation.find();
 	  res.status(200).send(reservations);
@@ -158,7 +154,7 @@ app.delete('/reservations/:id', async (req, res) => {
 	}
 });
 
-// Start the server
+// Start the server -----------------------------------------------------------------------
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });

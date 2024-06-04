@@ -430,3 +430,59 @@ body, html {
       padding-bottom: 5px;
   }
 }
+.reservations-table{
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  /* padding: 20px; */
+}
+.reservations-table > h2 {
+  color: #eaeaea;
+  font-size: 2.5em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.reservations-table > td {
+  padding: 10px;
+  /* border: 1px solid #eaeaea; */
+}
+.reserveform{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background: #eaeaea; */
+  color: #eaeaea;
+  padding: 11px;
+  border-radius: 10px;
+}
+.reserveform > input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+}
+.reviewform{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* background: #eaeaea; */
+  color: #eaeaea;
+  padding: 11px;
+  border-radius: 10px;
+}
+.reviewform > input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+}
+.reviewform > textarea {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+}
+

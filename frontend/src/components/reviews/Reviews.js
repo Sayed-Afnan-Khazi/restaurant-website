@@ -4,7 +4,7 @@ import ReviewCard from "../reviewcard/ReviewCard";
 
 const Reviews = () => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
   const [reviews, setReviews] = useState([])
 
   useEffect(()=> {
@@ -17,7 +17,7 @@ const Reviews = () => {
 			setReviews(data);
 		})
 		.catch(error => {
-			setMessage('An error occurred. Please try again later.');
+			console.log('An error occurred. Please try again later.');
 		});
   },[])
 

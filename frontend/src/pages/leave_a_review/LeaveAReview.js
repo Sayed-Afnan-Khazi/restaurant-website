@@ -42,7 +42,7 @@ const LeaveAReview = () => {
 				<h1 class="page-heading">Leave a Review</h1>
 				<p class="page-details">Tell us what you think! We value your feedback.</p>
 				{message && <p class="page-details">{message}</p>}
-				<form onSubmit={handleForm}>
+				<form className="reviewform" onSubmit={handleForm}>
 					<label for="name">Name:</label>
 					<input type="text" id="name" name="name"></input>
 					<label for="email">Email:</label>
@@ -53,7 +53,7 @@ const LeaveAReview = () => {
 					<input type="text" id="title" name="title"></input>
 					<label for="review">Review:</label>
 					<textarea id="review" name="review"></textarea>
-					<input type="submit" value="Submit"></input>
+					<input type="submit" className="rounded-btn" value="Submit"></input>
 				</form>
             </section>
         </div>

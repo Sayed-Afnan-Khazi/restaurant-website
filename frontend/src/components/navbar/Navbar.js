@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './Navbar.css';
 import {useNavigate, useLocation} from 'react-router-dom';
 
@@ -47,7 +47,8 @@ const Navbar = () => {
                     <li><p className={`menu__item ${ loc.pathname === '/' ? 'current-page' : ''}`} onClick={()=> goTo('/')}>Home</p></li>
                     <li><p className={`menu__item ${loc.pathname === '/menu' ? 'current-page':''}`} onClick={()=> goTo('/menu')}>Menu</p></li>
                     <li><p className={`menu__item ${loc.pathname === '/photos' ? 'current-page':''}`} onClick={()=> goTo('/photos')}>Photos</p></li>
-                    <li><p className={`menu__item ${loc.pathname === '/contact' ? 'current-page':''}`} onClick={()=> goTo('/contact')}>Contact</p></li>
+                    <li><p className={`menu__item ${loc.pathname === '/contact' ? 'current-page' : ''}`} onClick={() => goTo('/contact')}>Contact</p></li>
+                    <li><p className={`menu__item ${loc.pathname === '/reserve' ? 'current-page':''}`} onClick={()=> goTo('/reserve')}>Reserve</p></li>
                 </ul>
                 <p className="navbar-title active">Le Fish Au Chocolat</p>
             </nav>
