@@ -21,7 +21,7 @@ const LeaveAReview = () => {
 			review
 		};
 
-		fetch('http://localhost:5000/reviews', {
+		fetch('https://le-fish-au-chocolat.onrender.com/reviews', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'

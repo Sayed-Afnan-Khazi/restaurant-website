@@ -4,7 +4,7 @@ const AdminReservations = () => {
     const [reservations, setReservations] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/admin')
+        fetch('https://le-fish-au-chocolat.onrender.com/admin')
             .then(response => response.json())
             .then(data => {
                 const formattedReservations = data.map(reservation => ({

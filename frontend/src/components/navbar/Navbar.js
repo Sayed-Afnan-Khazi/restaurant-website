@@ -1,6 +1,7 @@
 import React from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import {useNavigate, useLocation} from 'react-router-dom';
+const [Root,setRoot] = useState("https://le-fish-au-chocolat.onrender.com");
 
 const Navbar = () => {
     // // To be used for to auto display/hide on scroll.
